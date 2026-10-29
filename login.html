@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrar - Vive la France</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css?v=6">
+    <script>
+        (function () {
+            var saved = localStorage.getItem('vlf-theme');
+            var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+</head>
+<body>
+    <div class="container">
+        <!-- Navegação -->
+        <nav class="navbar">
+            <a href="index.html" class="nav-brand">
+                <svg class="flag-icon" viewBox="0 0 30 20" aria-hidden="true">
+                    <rect width="10" height="20" fill="#002395"/>
+                    <rect x="10" width="10" height="20" fill="#FFFFFF"/>
+                    <rect x="20" width="10" height="20" fill="#ED2939"/>
+                </svg>
+                <span>Vive la France</span>
+            </a>
+            <div class="nav-right">
+                <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Alternar modo escuro">
+                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <circle cx="12" cy="12" r="5"/>
+                        <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                    </svg>
+                    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+
+        <main>
+            <section class="login-wrapper" style="background-image: url('img/hero-eiffel.webp');">
+                <div class="login-overlay"></div>
+
+                <div class="login-card">
+                    <div class="login-brand">
+                        <svg class="flag-icon" viewBox="0 0 30 20" aria-hidden="true">
+                            <rect width="10" height="20" fill="#002395"/>
+                            <rect x="10" width="10" height="20" fill="#FFFFFF"/>
+                            <rect x="20" width="10" height="20" fill="#ED2939"/>
+                        </svg>
+                        <h1>Bienvenue</h1>
+                        <p>Acesse sua conta para continuar explorando a França.</p>
+                    </div>
+
+                    <!-- Quando já estiver logado -->
+                    <div id="login-logged" class="login-logged" hidden>
+                        <p>Você está conectado como <strong id="login-logged-nome"></strong>.</p>
+                        <a href="index.html" class="login-btn login-btn-link">Ir para o início</a>
+                        <button type="button" id="login-sair" class="login-btn login-btn-outline">Sair da conta</button>
+                    </div>
+
+                    <div id="login-forms">
+                        <div class="login-tabs" role="tablist">
+                            <button type="button" class="login-tab active" id="tab-entrar" role="tab" aria-selected="true">Entrar</button>
+                            <button type="button" class="login-tab" id="tab-cadastro" role="tab" aria-selected="false">Criar conta</button>
+                        </div>
+
+                        <!-- Formulário de login -->
+                        <form id="login-form" class="login-form" novalidate>
+                            <label for="login-email">E-mail</label>
+                            <input type="email" id="login-email" placeholder="seu@email.com" autocomplete="email" required>
+
+                            <label for="login-senha">Senha</label>
+                            <div class="senha-wrapper">
+                                <input type="password" id="login-senha" placeholder="Sua senha" autocomplete="current-password" required>
+                                <button type="button" class="senha-toggle" data-alvo="login-senha" aria-label="Mostrar senha">👁</button>
+                            </div>
+
+                            <button type="submit" class="login-btn">Entrar</button>
+                            <p class="login-msg" id="login-msg" role="alert"></p>
+                        </form>
+
+                        <!-- Formulário de cadastro -->
+                        <form id="cadastro-form" class="login-form" novalidate hidden>
+                            <label for="cad-nome">Nome</label>
+                            <input type="text" id="cad-nome" placeholder="Seu nome" autocomplete="name" required>
+
+                            <label for="cad-email">E-mail</label>
+                            <input type="email" id="cad-email" placeholder="seu@email.com" autocomplete="email" required>
+
+                            <label for="cad-senha">Senha</label>
+                            <div class="senha-wrapper">
+                                <input type="password" id="cad-senha" placeholder="Mínimo de 6 caracteres" autocomplete="new-password" required>
+                                <button type="button" class="senha-toggle" data-alvo="cad-senha" aria-label="Mostrar senha">👁</button>
+                            </div>
+
+                            <label for="cad-senha2">Confirmar senha</label>
+                            <input type="password" id="cad-senha2" placeholder="Repita a senha" autocomplete="new-password" required>
+
+                            <button type="submit" class="login-btn">Criar conta</button>
+                            <p class="login-msg" id="cadastro-msg" role="alert"></p>
+                        </form>
+                    </div>
+
+                    <p class="login-nota" id="login-modo"></p>
+                </div>
+            </section>
+        </main>
+
+        <!-- Rodapé -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p><strong>Vive la France</strong></p>
+                <p class="footer-motto">Liberté, Égalité, Fraternité</p>
+                <p class="footer-tcc">Trabalho de Conclusão de Curso • Desenvolvimento de Sistemas</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="config.js?v=6"></script>
+    <script src="script.js?v=6"></script>
+    <script>
+        // Se o script.js antigo estiver em uso, avisa em vez de "não fazer nada"
+        window.addEventListener('load', function () {
+            if (typeof initLogin !== 'function') {
+                var m = document.getElementById('login-msg');
+                if (m) m.textContent = 'O arquivo script.js não foi atualizado. Substitua pela versão nova e recarregue com Ctrl+Shift+R.';
+            }
+        });
+    </script>
+</body>
+</html>

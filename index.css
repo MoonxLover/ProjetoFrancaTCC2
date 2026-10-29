@@ -1,0 +1,1470 @@
+/* ============================================
+   Vive la France - Estilos principais
+   Arquétipo: Magazine / Showcase
+   Categoria: History / Culture
+   ============================================ */
+
+/* Paleta de cores - History/Culture com toques da bandeira francesa */
+:root {
+    --bg: #fcfaf6;
+    --card: #ffffff;
+    --text: #0f172a;
+    --muted: #64748b;
+    --accent: #b45309;
+    --accent-soft: rgba(180, 83, 9, 0.14);
+    --accent2: #2d6b8a;
+    --accent2-soft: rgba(45, 107, 138, 0.14);
+    --border: rgba(15, 23, 42, 0.07);
+    --france-blue: #002395;
+    --france-blue-soft: rgba(0, 35, 149, 0.08);
+    --france-red: #ED2939;
+    --france-red-soft: rgba(237, 41, 57, 0.08);
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 15px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.12);
+    --navbar-bg: rgba(252, 250, 246, 0.95);
+    color-scheme: light;
+}
+
+/* ============================================
+   Modo escuro - via preferência do sistema (automático)
+   ou escolha manual (atributo data-theme no <html>)
+   ============================================ */
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+        --bg: #12151b;
+        --card: #1b1f27;
+        --text: #f1f3f8;
+        --muted: #9aa5b6;
+        --accent: #e2984f;
+        --accent-soft: rgba(226, 152, 79, 0.16);
+        --accent2: #6fb3d8;
+        --accent2-soft: rgba(111, 179, 216, 0.16);
+        --border: rgba(255, 255, 255, 0.09);
+        --france-blue: #6a8bef;
+        --france-blue-soft: rgba(106, 139, 239, 0.14);
+        --france-red: #ff6b7a;
+        --france-red-soft: rgba(255, 107, 122, 0.14);
+        --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
+        --shadow-md: 0 4px 18px rgba(0, 0, 0, 0.5);
+        --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.6);
+        --navbar-bg: rgba(18, 21, 27, 0.95);
+        color-scheme: dark;
+    }
+}
+
+:root[data-theme="dark"] {
+    --bg: #12151b;
+    --card: #1b1f27;
+    --text: #f1f3f8;
+    --muted: #9aa5b6;
+    --accent: #e2984f;
+    --accent-soft: rgba(226, 152, 79, 0.16);
+    --accent2: #6fb3d8;
+    --accent2-soft: rgba(111, 179, 216, 0.16);
+    --border: rgba(255, 255, 255, 0.09);
+    --france-blue: #6a8bef;
+    --france-blue-soft: rgba(106, 139, 239, 0.14);
+    --france-red: #ff6b7a;
+    --france-red-soft: rgba(255, 107, 122, 0.14);
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 4px 18px rgba(0, 0, 0, 0.5);
+    --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.6);
+    --navbar-bg: rgba(18, 21, 27, 0.95);
+    color-scheme: dark;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Source Sans 3', Arial, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    overflow-x: hidden;
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ============================================
+   Navegação
+   ============================================ */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 40px;
+    position: sticky;
+    top: 0;
+    background-color: var(--navbar-bg);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+    transition: background-color 0.4s ease;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Crimson Pro', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text);
+    transition: transform 0.3s ease;
+}
+
+.nav-brand:hover {
+    transform: scale(1.02);
+}
+
+.flag-icon {
+    width: 36px;
+    height: 24px;
+    border-radius: 2px;
+    box-shadow: var(--shadow-sm);
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: var(--muted);
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+    padding-bottom: 4px;
+}
+
+.nav-menu a:hover,
+.nav-menu a.ativo {
+    color: var(--accent);
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--france-blue), var(--france-red));
+    transition: width 0.3s ease;
+}
+
+.nav-menu a:hover::after,
+.nav-menu a.ativo::after {
+    width: 100%;
+}
+
+/* Botão de alternância claro/escuro */
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: var(--card);
+    color: var(--muted);
+    cursor: pointer;
+    transition: color 0.3s ease, border-color 0.3s ease, transform 0.4s ease, background 0.3s ease;
+}
+
+.theme-toggle:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    transform: rotate(15deg);
+}
+
+.theme-toggle svg {
+    width: 19px;
+    height: 19px;
+}
+
+.theme-toggle .icon-moon {
+    display: none;
+}
+
+:root[data-theme="dark"] .theme-toggle .icon-sun {
+    display: none;
+}
+
+:root[data-theme="dark"] .theme-toggle .icon-moon {
+    display: block;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .theme-toggle .icon-sun {
+        display: none;
+    }
+    :root:not([data-theme="light"]) .theme-toggle .icon-moon {
+        display: block;
+    }
+}
+
+/* ============================================
+   Hero / Cabeçalho
+   ============================================ */
+.hero {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 40px;
+    align-items: center;
+    padding: 70px 40px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 60px;
+    border-radius: 20px;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+/* Carrossel de imagens de fundo do hero */
+.hero-bg-carousel {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+}
+
+.hero-bg-slide {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 2s ease;
+}
+
+.hero-bg-slide.active {
+    opacity: 1;
+}
+
+.hero-bg-carousel::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(115deg, var(--bg) 0%, rgba(252, 250, 246, 0.86) 40%, rgba(252, 250, 246, 0.55) 100%);
+    transition: background 0.4s ease;
+}
+
+:root[data-theme="dark"] .hero-bg-carousel::after {
+    background: linear-gradient(115deg, var(--bg) 0%, rgba(18, 21, 27, 0.88) 40%, rgba(18, 21, 27, 0.6) 100%);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .hero-bg-carousel::after {
+        background: linear-gradient(115deg, var(--bg) 0%, rgba(18, 21, 27, 0.88) 40%, rgba(18, 21, 27, 0.6) 100%);
+    }
+}
+
+.hero-content h1 {
+    font-family: 'Crimson Pro', serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 10px;
+    line-height: 1.1;
+    background: linear-gradient(135deg, var(--france-blue), var(--france-red));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-subtitle {
+    font-family: 'Crimson Pro', serif;
+    font-size: 1.4rem;
+    font-style: italic;
+    color: var(--accent);
+    margin-bottom: 20px;
+}
+
+.hero-description {
+    font-size: 1.1rem;
+    color: var(--muted);
+    max-width: 500px;
+}
+
+.hero-flag svg {
+    width: 280px;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: var(--shadow-lg);
+    transition: transform 0.5s ease;
+    animation: bandeiraOnda 4s ease-in-out infinite;
+}
+
+@keyframes bandeiraOnda {
+    0%, 100% { transform: perspective(600px) rotateY(0deg); }
+    50% { transform: perspective(600px) rotateY(5deg); }
+}
+
+/* ============================================
+   Seções
+   ============================================ */
+.section {
+    padding: 50px 0;
+    scroll-margin-top: 80px;
+}
+
+.section-alt {
+    background-color: var(--card);
+    margin: 0 -20px;
+    padding: 50px 20px;
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+    transition: background-color 0.4s ease;
+}
+
+.section-title {
+    font-family: 'Crimson Pro', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 25px;
+    padding-bottom: 12px;
+    border-bottom: 3px solid transparent;
+    border-image: linear-gradient(90deg, var(--france-blue), var(--france-red)) 1;
+    display: inline-block;
+}
+
+.section-content p {
+    margin-bottom: 16px;
+    font-size: 1.05rem;
+    color: var(--text);
+}
+
+.section-content strong {
+    color: var(--accent);
+}
+
+/* ============================================
+   Cards de informação
+   ============================================ */
+.info-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    margin-top: 30px;
+}
+
+.info-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.4s ease;
+    border-top: 3px solid var(--accent);
+    position: relative;
+    overflow: hidden;
+}
+
+.info-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--france-blue-soft), var(--france-red-soft));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.info-card:hover::before {
+    opacity: 1;
+}
+
+.info-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+.info-card h3 {
+    font-family: 'Crimson Pro', serif;
+    font-size: 0.9rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+}
+
+.info-card p {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text);
+    margin: 0;
+}
+
+/* ============================================
+   Timeline de História
+   ============================================ */
+.timeline {
+    position: relative;
+    margin-top: 30px;
+    padding-left: 30px;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, var(--france-blue), var(--france-red));
+    border-radius: 2px;
+}
+
+.timeline-item {
+    position: relative;
+    padding-bottom: 30px;
+    padding-left: 25px;
+}
+
+.timeline-item:last-child {
+    padding-bottom: 0;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -26px;
+    top: 6px;
+    width: 16px;
+    height: 16px;
+    background: var(--card);
+    border: 3px solid var(--accent);
+    border-radius: 50%;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.timeline-item:hover::before {
+    background: var(--accent);
+    transform: scale(1.2);
+}
+
+.timeline-ano {
+    font-family: 'Crimson Pro', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--france-blue);
+    margin-bottom: 4px;
+}
+
+.timeline-titulo {
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 6px;
+    font-size: 1.05rem;
+}
+
+.timeline-desc {
+    color: var(--muted);
+    font-size: 0.98rem;
+}
+
+/* ============================================
+   Grid de Cultura
+   ============================================ */
+.culture-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+    margin-top: 30px;
+}
+
+.culture-item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 28px 24px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.culture-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--france-blue), var(--france-red));
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+    z-index: 2;
+}
+
+.culture-item:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-md);
+}
+
+.culture-item:hover::after {
+    transform: scaleX(1);
+}
+
+/* Imagem no topo do card de cultura (bleed até a borda) */
+.culture-item-image {
+    height: 150px;
+    margin: -28px -24px 18px -24px;
+    background-size: cover;
+    background-position: center;
+}
+
+.culture-icon {
+    width: 44px;
+    height: 44px;
+    color: var(--accent);
+    margin-bottom: 16px;
+    padding: 8px;
+    background: var(--accent-soft);
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.culture-item:hover .culture-icon {
+    transform: rotate(5deg) scale(1.1);
+}
+
+.culture-item h3 {
+    font-family: 'Crimson Pro', serif;
+    font-size: 1.3rem;
+    color: var(--text);
+    margin-bottom: 10px;
+}
+
+.culture-item p {
+    color: var(--muted);
+    font-size: 0.98rem;
+    margin: 0;
+}
+
+/* ============================================
+   Cards de Turismo
+   ============================================ */
+.turismo-intro {
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+}
+
+.turismo-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.turismo-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.4s ease;
+    border-left: 4px solid var(--accent2);
+    position: relative;
+    overflow: hidden;
+}
+
+.turismo-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-md);
+    border-left-color: var(--france-red);
+}
+
+/* Imagem no topo do card de turismo (bleed até a borda) */
+.turismo-card-image {
+    height: 170px;
+    margin: -28px -28px 20px -28px;
+    background-size: cover;
+    background-position: center;
+}
+
+.turismo-card-icon {
+    width: 56px;
+    height: 56px;
+    background: var(--accent2-soft);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+    color: var(--accent2);
+    transition: all 0.3s ease;
+}
+
+.turismo-card:hover .turismo-card-icon {
+    background: var(--france-red-soft);
+    color: var(--france-red);
+    transform: scale(1.1);
+}
+
+.turismo-card-icon svg {
+    width: 28px;
+    height: 28px;
+}
+
+.turismo-card h3 {
+    font-family: 'Crimson Pro', serif;
+    font-size: 1.4rem;
+    color: var(--text);
+    margin-bottom: 12px;
+}
+
+.turismo-card p {
+    color: var(--muted);
+    font-size: 0.98rem;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.turismo-local {
+    display: inline-block;
+    margin-top: 14px;
+    padding: 4px 12px;
+    background: var(--france-blue-soft);
+    color: var(--france-blue);
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+/* ============================================
+   Destaques / Curiosidades
+   ============================================ */
+.destaques-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.destaque-item {
+    background: linear-gradient(135deg, var(--card), var(--bg));
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    transition: all 0.3s ease;
+}
+
+.destaque-item:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateX(5px);
+}
+
+.destaque-numero {
+    font-family: 'Crimson Pro', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--france-blue), var(--france-red));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+.destaque-item h4 {
+    font-family: 'Crimson Pro', serif;
+    font-size: 1.15rem;
+    color: var(--text);
+    margin-bottom: 8px;
+}
+
+.destaque-item p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+/* ============================================
+   Ferramentas de Viagem (Clima + Conversor)
+   ============================================ */
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-top: 30px;
+}
+
+.tool-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px;
+    box-shadow: var(--shadow-sm);
+    transition: background-color 0.4s ease;
+}
+
+.tool-card h3 {
+    font-family: 'Crimson Pro', serif;
+    font-size: 1.3rem;
+    margin-bottom: 18px;
+    color: var(--text);
+}
+
+.tool-card select,
+.tool-card input {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 1rem;
+    background: var(--bg);
+    color: var(--text);
+}
+
+#conversor-direcao {
+    margin-bottom: 14px;
+}
+
+.conversor-input-wrapper {
+    display: flex;
+    gap: 10px;
+}
+
+.conversor-input-wrapper input {
+    flex: 1;
+}
+
+.tool-card button {
+    padding: 10px 20px;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.tool-card button:hover {
+    background: var(--france-blue);
+}
+
+.clima-resultado,
+.conversor-resultado {
+    margin-top: 18px;
+    min-height: 40px;
+}
+
+.clima-info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.clima-icone {
+    font-size: 2.5rem;
+}
+
+.clima-temp {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.clima-desc {
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+.clima-vento {
+    color: var(--muted);
+    font-size: 0.85rem;
+}
+
+.conversor-valor {
+    font-size: 1.2rem;
+    color: var(--text);
+}
+
+.conversor-data {
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-top: 4px;
+}
+
+.loading-text,
+.erro-text {
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+.erro-text {
+    color: var(--france-red);
+}
+
+/* ============================================
+   Páginas internas - Navegação entre páginas
+   ============================================ */
+.page-header {
+    position: relative;
+    text-align: center;
+    padding: 60px 30px 60px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 50px;
+    border-radius: 20px;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.page-header-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background-size: cover;
+    background-position: center;
+}
+
+.page-header-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(252, 250, 246, 0.88) 0%, var(--bg) 92%);
+}
+
+:root[data-theme="dark"] .page-header-bg::after {
+    background: linear-gradient(180deg, rgba(18, 21, 27, 0.88) 0%, var(--bg) 92%);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .page-header-bg::after {
+        background: linear-gradient(180deg, rgba(18, 21, 27, 0.88) 0%, var(--bg) 92%);
+    }
+}
+
+.page-header h1 {
+    font-family: 'Crimson Pro', serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    background: linear-gradient(135deg, var(--france-blue), var(--france-red));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.page-header p {
+    font-size: 1.15rem;
+    color: var(--muted);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.voltar-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--muted);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.voltar-btn:hover {
+    background: var(--accent-soft);
+    color: var(--accent);
+    border-color: var(--accent);
+    transform: translateX(-3px);
+}
+
+.voltar-btn svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* ============================================
+   Rodapé
+   ============================================ */
+.footer {
+    margin-top: 60px;
+    padding: 40px 0 30px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    position: relative;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--france-blue), var(--france-blue) 33%, var(--card) 33%, var(--card) 66%, var(--france-red) 66%, var(--france-red) 100%);
+}
+
+.footer-content p {
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+.footer-motto {
+    font-family: 'Crimson Pro', serif;
+    font-style: italic;
+    color: var(--accent) !important;
+    margin-top: 8px;
+    font-size: 1.1rem !important;
+    letter-spacing: 1px;
+}
+
+.footer-tcc {
+    margin-top: 12px;
+    font-size: 0.88rem !important;
+    opacity: 0.8;
+}
+
+/* ============================================
+   Animações de entrada
+   ============================================ */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.section,
+.hero,
+.navbar,
+.footer {
+    animation: fadeInUp 0.7s ease forwards;
+}
+
+.timeline-item,
+.culture-item,
+.turismo-card,
+.info-card,
+.destaque-item {
+    animation: fadeInUp 0.6s ease forwards;
+    opacity: 0;
+}
+
+.timeline-item:nth-child(1) { animation-delay: 0.1s; }
+.timeline-item:nth-child(2) { animation-delay: 0.2s; }
+.timeline-item:nth-child(3) { animation-delay: 0.3s; }
+.timeline-item:nth-child(4) { animation-delay: 0.4s; }
+.timeline-item:nth-child(5) { animation-delay: 0.5s; }
+
+.culture-item:nth-child(1),
+.turismo-card:nth-child(1),
+.info-card:nth-child(1),
+.destaque-item:nth-child(1) { animation-delay: 0.1s; }
+.culture-item:nth-child(2),
+.turismo-card:nth-child(2),
+.info-card:nth-child(2),
+.destaque-item:nth-child(2) { animation-delay: 0.2s; }
+.culture-item:nth-child(3),
+.turismo-card:nth-child(3),
+.info-card:nth-child(3),
+.destaque-item:nth-child(3) { animation-delay: 0.3s; }
+.culture-item:nth-child(4),
+.turismo-card:nth-child(4),
+.info-card:nth-child(4),
+.destaque-item:nth-child(4) { animation-delay: 0.4s; }
+.turismo-card:nth-child(5),
+.destaque-item:nth-child(5) { animation-delay: 0.5s; }
+.turismo-card:nth-child(6),
+.destaque-item:nth-child(6) { animation-delay: 0.6s; }
+
+/* ============================================
+   Responsividade
+   ============================================ */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 16px;
+        padding: 15px 0;
+    }
+
+    .nav-right {
+        justify-content: center;
+    }
+
+    .nav-menu {
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 30px;
+        padding: 50px 24px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-description {
+        margin: 0 auto;
+    }
+
+    .hero-flag {
+        display: flex;
+        justify-content: center;
+    }
+
+    .hero-flag svg {
+        width: 220px;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .info-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .page-header h1 {
+        font-size: 2.2rem;
+    }
+
+    .timeline {
+        padding-left: 20px;
+    }
+
+    .conversor-input-wrapper {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.15rem;
+    }
+
+    .info-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .culture-grid,
+    .turismo-cards,
+    .destaques-grid,
+    .tools-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title {
+        font-size: 1.6rem;
+    }
+
+    .page-header h1 {
+        font-size: 1.9rem;
+    }
+
+    .nav-menu {
+        gap: 15px;
+        font-size: 0.95rem;
+    }
+}
+
+/* Respeita usuários que preferem menos movimento */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* ============================================
+   Tela de login / cadastro
+   ============================================ */
+.login-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 620px;
+    padding: 50px 20px;
+    border-radius: 20px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    isolation: isolate;
+}
+
+.login-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(135deg, rgba(0, 35, 149, 0.55), rgba(12, 16, 28, 0.78));
+}
+
+.login-card {
+    width: 100%;
+    max-width: 440px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 36px 32px;
+    box-shadow: var(--shadow-lg);
+    transition: background-color 0.4s ease;
+}
+
+.login-brand {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.login-brand .flag-icon {
+    margin-bottom: 10px;
+}
+
+.login-brand h1 {
+    font-family: 'Crimson Pro', serif;
+    font-size: 2rem;
+    background: linear-gradient(135deg, var(--france-blue), var(--france-red));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.login-brand p {
+    color: var(--muted);
+    font-size: 0.98rem;
+}
+
+.login-tabs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+    padding: 4px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-bottom: 22px;
+}
+
+.login-tab {
+    padding: 9px 10px;
+    border: none;
+    border-radius: 7px;
+    background: transparent;
+    color: var(--muted);
+    font-family: inherit;
+    font-size: 0.98rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.login-tab.active {
+    background: var(--card);
+    color: var(--accent);
+    box-shadow: var(--shadow-sm);
+}
+
+.login-form[hidden],
+.login-logged[hidden],
+#login-forms[hidden] {
+    display: none;
+}
+
+.login-form label {
+    display: block;
+    margin: 14px 0 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.login-form input {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+    background: var(--bg);
+    color: var(--text);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-form input:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.senha-wrapper {
+    position: relative;
+}
+
+.senha-wrapper input {
+    padding-right: 46px;
+}
+
+.senha-toggle {
+    position: absolute;
+    right: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 34px;
+    height: 34px;
+    border: none;
+    border-radius: 6px;
+    background: transparent;
+    cursor: pointer;
+    font-size: 1.05rem;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+.senha-toggle:hover {
+    opacity: 1;
+}
+
+.login-btn {
+    display: block;
+    width: 100%;
+    margin-top: 22px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, var(--france-blue), var(--accent2));
+    color: #fff;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.login-btn-outline {
+    background: transparent;
+    color: var(--muted);
+    border: 1px solid var(--border);
+    margin-top: 12px;
+}
+
+.login-btn-outline:hover {
+    color: var(--france-red);
+    border-color: var(--france-red);
+    box-shadow: none;
+}
+
+.login-logged {
+    text-align: center;
+}
+
+.login-logged p {
+    color: var(--text);
+}
+
+.login-msg {
+    min-height: 1.4em;
+    margin-top: 14px;
+    font-size: 0.93rem;
+    text-align: center;
+    color: var(--france-red);
+}
+
+.login-msg.ok {
+    color: #2e8b57;
+}
+
+@media (max-width: 480px) {
+    .login-card {
+        padding: 28px 20px;
+    }
+}
+
+/* ============================================
+   Clima: previsão de 7 dias
+   ============================================ */
+.tool-card-wide {
+    grid-column: 1 / -1;
+}
+
+#cidade-select,
+#conversor-direcao,
+.conversor-input-wrapper {
+    max-width: 520px;
+}
+
+.previsao-titulo {
+    font-family: 'Crimson Pro', serif;
+    font-size: 1.15rem;
+    color: var(--text);
+    margin-top: 24px;
+}
+
+.previsao-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(96px, 1fr));
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.previsao-dia {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    padding: 12px 6px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.4s ease;
+}
+
+.previsao-dia:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-sm);
+}
+
+.previsao-dia:first-child {
+    border-color: var(--accent);
+    background: var(--accent-soft);
+}
+
+.previsao-nome {
+    font-weight: 600;
+    color: var(--text);
+    font-size: 0.95rem;
+}
+
+.previsao-data {
+    font-size: 0.78rem;
+    color: var(--muted);
+}
+
+.previsao-icone {
+    font-size: 1.9rem;
+    line-height: 1.4;
+}
+
+.previsao-temp {
+    font-size: 0.95rem;
+    color: var(--text);
+}
+
+.previsao-temp span {
+    color: var(--muted);
+}
+
+.previsao-chuva {
+    font-size: 0.8rem;
+    color: var(--accent2);
+}
+
+.btn-retry {
+    margin-top: 10px;
+}
+
+.login-nota {
+    margin-top: 16px;
+    font-size: 0.82rem;
+    line-height: 1.4;
+    text-align: center;
+    color: var(--muted);
+}
+
+/* Clima atual: garante que o estilo não seja sobrescrito por ".section-content p" */
+.tool-card .clima-info {
+    gap: 18px;
+    margin-top: 6px;
+}
+
+.tool-card .clima-info p,
+.tool-card .conversor-valor,
+.tool-card .conversor-data {
+    margin: 0;
+}
+
+.tool-card .clima-temp {
+    font-size: 2.2rem;
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--text);
+}
+
+.tool-card .clima-desc {
+    font-size: 1.05rem;
+    color: var(--text);
+    margin-top: 2px;
+}
+
+.tool-card .clima-vento {
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin-top: 4px;
+}
+
+.tool-card .conversor-valor {
+    font-size: 1.25rem;
+    color: var(--text);
+}
+
+.tool-card .conversor-data {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-top: 4px;
+}

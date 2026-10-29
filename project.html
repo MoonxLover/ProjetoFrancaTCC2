@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cultura Francesa - Vive la France</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Trava de acesso: sem login, redireciona para a tela de entrada -->
+    <script>
+        (function () {
+            var sessao = null;
+            try { sessao = JSON.parse(localStorage.getItem('vlf-session')); } catch (e) {}
+            if (!sessao || !sessao.email) { location.replace('login.html'); }
+        })();
+    </script>
+    <link rel="stylesheet" href="index.css?v=6">
+    <script>
+        (function () {
+            var saved = localStorage.getItem('vlf-theme');
+            var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+</head>
+<body>
+    <div class="container">
+        <!-- Navegação -->
+        <nav class="navbar">
+            <a href="index.html" class="nav-brand">
+                <svg class="flag-icon" viewBox="0 0 30 20" aria-hidden="true">
+                    <rect width="10" height="20" fill="#002395"/>
+                    <rect x="10" width="10" height="20" fill="#FFFFFF"/>
+                    <rect x="20" width="10" height="20" fill="#ED2939"/>
+                </svg>
+                <span>Vive la France</span>
+            </a>
+            <div class="nav-right">
+                <ul class="nav-menu">
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="index.html#ferramentas">Ferramentas</a></li>
+                    <li><a href="project.html" class="ativo">Cultura</a></li>
+                    <li><a href="contact.html">Pontos Turísticos</a></li>
+                    <li id="nav-auth"><a href="login.html">Entrar</a></li>
+                </ul>
+                <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Alternar modo escuro">
+                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <circle cx="12" cy="12" r="5"/>
+                        <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                    </svg>
+                    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Cabeçalho da Página -->
+        <header class="page-header">
+            <div class="page-header-bg" style="background-image: url('img/macarons.jpg');" aria-hidden="true"></div>
+            <a href="index.html" class="voltar-btn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Voltar ao início
+            </a>
+            <h1>Cultura Francesa</h1>
+            <p>Uma jornada pela arte, gastronomia, literatura e tradições que fazem da França um dos países mais fascinantes do mundo.</p>
+        </header>
+
+        <!-- Conteúdo Principal -->
+        <main>
+            <!-- Introdução -->
+            <section class="section">
+                <div class="section-content">
+                    <p>
+                        A cultura da França é uma das mais influentes e reconhecidas do mundo, tecida ao longo de séculos de história, entrelaçando tradição, arte, pensamento e modo de viver. A França é frequentemente chamada de <strong>"país da arte e da beleza"</strong>, e não à toa: abrigou grandes nomes que revolucionaram suas áreas e espalharam o francês como língua internacional da cultura e da diplomacia.
+                    </p>
+                    <p>
+                        Em 2010, a <strong>gastronomia francesa</strong> foi declarada Patrimônio Cultural Imaterial da Humanidade pela UNESCO, reconhecendo-a como uma tradição social que celebra a reunião de pessoas ao redor da mesa.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Arte e Pintura -->
+            <section class="section section-alt">
+                <h2 class="section-title">Arte e Pintura</h2>
+                <div class="section-content">
+                    <p>
+                        A França foi o berço de alguns dos movimentos artísticos mais importantes da história, como o Impressionismo, o Cubismo e o Surrealismo. Paris foi, por décadas, a capital mundial da arte, atraindo artistas de todo o mundo.
+                    </p>
+                    
+                    <div class="culture-grid">
+                        <div class="culture-item">
+                            <div class="culture-item-image" style="background-image: url('https://commons.wikimedia.org/wiki/Special:FilePath/Claude%20Monet%2C%20Impression%2C%20soleil%20levant.jpg?width=500');"></div>
+                            <svg class="culture-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 2a15 15 0 010 20M12 2a15 15 0 000 20M2 12h20"/>
+                            </svg>
+                            <h3>Claude Monet</h3>
+                            <p>Pai do Impressionismo, famoso por suas séries de pinturas de nenúfares e da catedral de Rouen.</p>
+                        </div>
+                        <div class="culture-item">
+                            <div class="culture-item-image" style="background-image: url('https://commons.wikimedia.org/wiki/Special:FilePath/Pierre-Auguste%20Renoir%2C%20Le%20Bal%20du%20moulin%20de%20la%20Galette.jpg?width=500');"></div>
+                            <svg class="culture-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                <path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                            </svg>
+                            <h3>Pierre-Auguste Renoir</h3>
+                            <p>Impressionista conhecido por suas pinturas de cenas da vida parisiense e beleza feminina.</p>
+                        </div>
+                        <div class="culture-item">
+                            <div class="culture-item-image" style="background-image: url('https://commons.wikimedia.org/wiki/Special:FilePath/Le%20Penseur%2C%20Mus%C3%A9e%20Rodin.jpg?width=500');"></div>
+                            <svg class="culture-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                            </svg>
+                            <h3>Auguste Rodin</h3>
+                            <p>Um dos maiores escultores de todos os tempos, autor de "O Pensador" e "O Beijo".</p>
+                        </div>
+                        <div class="culture-item">
+                            <div class="culture-item-image" style="background-image: url('https://commons.wikimedia.org/wiki/Special:FilePath/Edouard%20Manet%2C%20Le%20D%C3%A9jeuner%20sur%20l%27herbe.jpg?width=500');"></div>
+                            <svg class="culture-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                            </svg>
+                            <h3>Édouard Manet</h3>
+                            <p>Pintor pioneiro do realismo e precursor do impressionismo, que desafiou as convenções acadêmicas.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Literatura -->
+            <section class="section">
+                <h2 class="section-title">Literatura</h2>
+                <div class="section-content">
+                    <p>
+                        A literatura francesa é uma das mais ricas e influentes do mundo. Com mais de 15 ganhadores do Prêmio Nobel de Literatura, a França produziu escritores que moldaram o pensamento moderno e criaram obras-primas eternas.
+                    </p>
+                    
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-ano">1802 - 1885</div>
+                            <div class="timeline-titulo">Victor Hugo</div>
+                            <div class="timeline-desc">Autor de "Os Miseráveis" e "O Corcunda de Notre-Dame", símbolo do romantismo francês e defensor dos direitos humanos.</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-ano">1871 - 1922</div>
+                            <div class="timeline-titulo">Marcel Proust</div>
+                            <div class="timeline-desc">Escritor modernista, autor da monumental obra "Em Busca do Tempo Perdido", uma das maiores da literatura ocidental.</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-ano">1913 - 1960</div>
+                            <div class="timeline-titulo">Albert Camus</div>
+                            <div class="timeline-desc">Filósofo e escritor, Nobel de Literatura em 1957. Autor de "O Estrangeiro" e "A Peste", explorando o absurdo da condição humana.</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-ano">1908 - 1986</div>
+                            <div class="timeline-titulo">Simone de Beauvoir</div>
+                            <div class="timeline-desc">Filósofa existencialista e escritora, autora de "O Segundo Sexo", obra fundamental para o movimento feminista moderno.</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-ano">1828 - 1905</div>
+                            <div class="timeline-titulo">Júlio Verne</div>
+                            <div class="timeline-desc">Pai da ficção científica, autor de clássicos como "Volta ao Mundo em 80 Dias" e "Vinte Mil Léguas Submarinas".</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Gastronomia -->
+            <section class="section section-alt">
+                <h2 class="section-title">Gastronomia</h2>
+                <div class="section-content">
+                    <p>
+                        A gastronomia francesa é considerada uma das melhores e mais refinadas do mundo. Em 2010, foi declarada Patrimônio Cultural Imaterial da Humanidade pela UNESCO. A refeição francesa é um ritual que valoriza ingredientes de qualidade e a convivência.
+                    </p>
+                    
+                    <div class="culture-grid">
+                        <div class="culture-item">
+                            <div class="culture-item-image" style="background-image: url('img/queijo.jpg');"></div>
+                            <svg class="culture-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
+                            </svg>
+                            <h3>Queijos</h3>
+                            <p>Mais de 1.200 variedades, incluindo Brie, Camembert, Roquefort e Comté, cada um com sua região de origem.</p>
+                        </div>
+                        <div class="culture-item">
+                            <div class="culture-item-image" style="background-image: url('img/vinhos.jpg');"></div>
+                            <svg class="culture-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                <path d="M12 2L8 10h8L12 2zM8 10l-2 12h12l-2-12H8z"/>
+                            </svg>
+                            <h3>Vinhos</h3>
+                            <p>Regiões como Bordeaux, Borgonha e Champagne produzem alguns dos vinhos mais prestigiados do mundo.</p>
+                        </div>
+                        <div class="culture-item">
+                            <div class="culture-item-image" style="background-image: url('img/croissants.jpg');"></div>
+                            <svg class="culture-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                <path d="M3 9h18v10a2 2 0 01-2 2H5a2 2 0 01-2-2V9zM3 9l3-5h12l3 5"/>
+                            </svg>
+                            <h3>Croissants</h3>
+                            <p>Pão folhado de origem austríaca mas aperfeiçoado na França, símbolo do café da manhã francês.</p>
+                        </div>
+                        <div class="culture-item">
+                            <div class="culture-item-image" style="background-image: url('https://commons.wikimedia.org/wiki/Special:FilePath/Macarons%20in%20Paris.jpg?width=500');"></div>
+                            <svg class="culture-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                <path d="M12 2a10 10 0 1010 10H12V2z"/>
+                                <path d="M20 12a8 8 0 10-8 8"/>
+                            </svg>
+                            <h3>Haute Cuisine</h3>
+                            <p>Culinária de alta gastronomia, com chefs como Alain Ducasse e Joël Robuchon, detentores de múltiplas estrelas Michelin.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Moda -->
+            <section class="section">
+                <h2 class="section-title">Moda e Estilo</h2>
+                <div class="section-content">
+                    <p>
+                        Paris é considerada a <strong>capital mundial da moda</strong>. A cidade abriga marcas icônicas e os mais prestigiados desfiles de alta-costura do mundo. O "estilo parisiense" é sinônimo de elegância, sofisticação e atemporalidade.
+                    </p>
+                    
+                    <div class="destaques-grid">
+                        <div class="destaque-item">
+                            <div class="destaque-numero">1854</div>
+                            <h4>Louis Vuitton</h4>
+                            <p>Uma das marcas de luxo mais antigas e valiosas do mundo, fundada em Paris.</p>
+                        </div>
+                        <div class="destaque-item">
+                            <div class="destaque-numero">1910</div>
+                            <h4>Chanel</h4>
+                            <p>Fundada por Coco Chanel, revolucionou a moda feminina com o "pretinho básico" e o perfume Nº 5.</p>
+                        </div>
+                        <div class="destaque-item">
+                            <div class="destaque-numero">1946</div>
+                            <h4>Dior</h4>
+                            <p>Christian Dior criou o "New Look", transformando a moda pós-Segunda Guerra Mundial.</p>
+                        </div>
+                        <div class="destaque-item">
+                            <div class="destaque-numero">1961</div>
+                            <h4>Yves Saint Laurent</h4>
+                            <p>Pioneiro ao trazer o smoking para o guarda-roupa feminino e popularizar o prêt-à-porter.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Cinema e Música -->
+            <section class="section section-alt">
+                <h2 class="section-title">Cinema e Música</h2>
+                <div class="section-content">
+                    <p>
+                        A França é o berço do cinema: os irmãos Lumière realizaram a primeira projeção pública da história em Paris, em 1895. Hoje, o <strong>Festival de Cannes</strong> é o mais prestigiado festival de cinema do mundo.
+                    </p>
+                    
+                    <div class="culture-grid">
+                        <div class="culture-item">
+                            <svg class="culture-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"/>
+                                <line x1="7" y1="2" x2="7" y2="22"/>
+                                <line x1="17" y1="2" x2="17" y2="22"/>
+                                <line x1="2" y1="12" x2="22" y2="12"/>
+                                <line x1="2" y1="7" x2="7" y2="7"/>
+                                <line x1="2" y1="17" x2="7" y2="17"/>
+                                <line x1="17" y1="17" x2="22" y2="17"/>
+                                <line x1="17" y1="7" x2="22" y2="7"/>
+                            </svg>
+                            <h3>Nouvelle Vague</h3>
+                            <p>Movimento cinematográfico dos anos 50 e 60 com Godard, Truffaut e Renoir, que revolucionou a linguagem do cinema.</p>
+                        </div>
+                        <div class="culture-item">
+                            <svg class="culture-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                <path d="M9 18V5l12-2v13"/>
+                                <circle cx="6" cy="18" r="3"/>
+                                <circle cx="18" cy="16" r="3"/>
+                            </svg>
+                            <h3>Édith Piaf</h3>
+                            <p>A maior cantora francesa de todos os tempos, famosa por "La Vie en Rose" e "Non, je ne regrette rien".</p>
+                        </div>
+                        <div class="culture-item">
+                            <svg class="culture-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
+                            </svg>
+                            <h3>Claude Debussy</h3>
+                            <p>Compositor impressionista, uma das figuras mais importantes da música erudita do final do século XIX e início do XX.</p>
+                        </div>
+                        <div class="culture-item">
+                            <svg class="culture-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                <polygon points="23 7 16 12 23 17 23 7"/>
+                                <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+                            </svg>
+                            <h3>Festival de Cannes</h3>
+                            <p>O festival de cinema mais prestigiado do mundo, realizado anualmente na Riviera Francesa desde 1946.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Festivais e Tradições -->
+            <section class="section">
+                <h2 class="section-title">Festivais e Tradições</h2>
+                <div class="section-content">
+                    <p>
+                        A França é rica em tradições e festivais que celebram sua história, sua gastronomia e sua cultura popular.
+                    </p>
+                    
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-ano">14 de Julho</div>
+                            <div class="timeline-titulo">Festa Nacional (Bastilha)</div>
+                            <div class="timeline-desc">Comemora a queda da Bastilha em 1789. Desfiles militares, fogos de artifício e festas populares por todo o país.</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-ano">Fevereiro</div>
+                            <div class="timeline-titulo">Carnaval de Nice</div>
+                            <div class="timeline-desc">Um dos carnavais mais antigos e famosos do mundo, com desfiles de carros alegóricos e batalhas de flores.</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-ano">Junho</div>
+                            <div class="timeline-titulo">Festival de Avignon</div>
+                            <div class="timeline-desc">O maior festival de teatro do mundo, transformando a cidade medieval em um palco a céu aberto.</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-ano">Natal</div>
+                            <div class="timeline-titulo">Mercados de Natal</div>
+                            <div class="timeline-desc">Estrasburgo abriga um dos mercados de natal mais antigos e belos da Europa, remontando a 1570.</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Rodapé -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p><strong>Vive la France</strong></p>
+                <p class="footer-motto">Liberté, Égalité, Fraternité</p>
+                <p class="footer-tcc">Trabalho de Conclusão de Curso • Desenvolvimento de Sistemas</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js?v=6"></script>
+</body>
+</html>

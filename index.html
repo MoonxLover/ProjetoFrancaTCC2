@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vive la France - Descubra a França</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Trava de acesso: sem login, redireciona para a tela de entrada -->
+    <script>
+        (function () {
+            var sessao = null;
+            try { sessao = JSON.parse(localStorage.getItem('vlf-session')); } catch (e) {}
+            if (!sessao || !sessao.email) { location.replace('login.html'); }
+        })();
+    </script>
+    <link rel="stylesheet" href="index.css?v=5">
+    <!-- Aplica o tema salvo (ou a preferência do sistema) antes da página renderizar, evitando "flash" -->
+    <script>
+        (function () {
+            var saved = localStorage.getItem('vlf-theme');
+            var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+</head>
+<body>
+    <div class="container">
+        <!-- Navegação -->
+        <nav class="navbar">
+            <a href="index.html" class="nav-brand">
+                <svg class="flag-icon" viewBox="0 0 30 20" aria-hidden="true">
+                    <rect width="10" height="20" fill="#002395"/>
+                    <rect x="10" width="10" height="20" fill="#FFFFFF"/>
+                    <rect x="20" width="10" height="20" fill="#ED2939"/>
+                </svg>
+                <span>Vive la France</span>
+            </a>
+            <div class="nav-right">
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="ativo">Início</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#historia">História</a></li>
+                    <li><a href="#ferramentas">Ferramentas</a></li>
+                    <li><a href="project.html">Cultura</a></li>
+                    <li><a href="contact.html">Pontos Turísticos</a></li>
+                    <li id="nav-auth"><a href="login.html">Entrar</a></li>
+                </ul>
+                <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Alternar modo escuro">
+                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <circle cx="12" cy="12" r="5"/>
+                        <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                    </svg>
+                    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Cabeçalho / Hero -->
+        <header class="hero">
+            <!-- Carrossel de imagens de fundo, alternando automaticamente -->
+            <div class="hero-bg-carousel" aria-hidden="true">
+                <div class="hero-bg-slide active" style="background-image: url('img/hero-eiffel.webp');"></div>
+                <div class="hero-bg-slide" style="background-image: url('img/hero-lyon.webp');"></div>
+            </div>
+            <div class="hero-content">
+                <h1>Vive la France</h1>
+                <p class="hero-subtitle">Liberté, Égalité, Fraternité</p>
+                <p class="hero-description">
+                    Descubra a terra da arte, da gastronomia e da história que moldou o mundo moderno. 
+                    Um país onde cada esquina conta uma história e cada tradição é uma obra de arte.
+                </p>
+            </div>
+            <div class="hero-flag">
+                <svg viewBox="0 0 300 200" aria-hidden="true">
+                    <rect width="100" height="200" fill="#002395"/>
+                    <rect x="100" width="100" height="200" fill="#FFFFFF"/>
+                    <rect x="200" width="100" height="200" fill="#ED2939"/>
+                </svg>
+            </div>
+        </header>
+
+        <!-- Conteúdo Principal -->
+        <main>
+            <!-- Seção Sobre -->
+            <section id="sobre" class="section">
+                <h2 class="section-title">Sobre a França</h2>
+                <div class="section-content">
+                    <p>
+                        A França é um país onde a história se entrelaça com a beleza em cada esquina. Dos brilhantes campos de lavanda da Provença às ruas de paralelepípedos de Paris, onde a Torre Eiffel brilha ao entardecer como um farol de luzes, respira-se cultura por toda parte.
+                    </p>
+                    <p>
+                        Seus sabores — queijos, vinhos e pães que parecem obras de arte — contam histórias de tradições cuidadosamente preservadas ao longo dos séculos, fazendo com que cada visita seja como mergulhar em um poema vivo. Com mais de <strong>100 milhões de visitantes por ano</strong>, a França é o destino turístico mais visitado do mundo.
+                    </p>
+                    
+                    <div class="info-cards">
+                        <div class="info-card">
+                            <h3>Capital</h3>
+                            <p>Paris</p>
+                        </div>
+                        <div class="info-card">
+                            <h3>População</h3>
+                            <p>~67 milhões</p>
+                        </div>
+                        <div class="info-card">
+                            <h3>Idioma</h3>
+                            <p>Francês</p>
+                        </div>
+                        <div class="info-card">
+                            <h3>Moeda</h3>
+                            <p>Euro (€)</p>
+                        </div>
+                    </div>
+
+                    <div class="destaques-grid" style="margin-top: 40px;">
+                        <div class="destaque-item">
+                            <div class="destaque-numero">1º</div>
+                            <h4>Destino mais visitado</h4>
+                            <p>País mais turístico do mundo, recebendo mais de 100 milhões de visitantes anualmente.</p>
+                        </div>
+                        <div class="destaque-item">
+                            <div class="destaque-numero">49</div>
+                            <h4>Sítios UNESCO</h4>
+                            <p>Possui 49 patrimônios mundiais da humanidade, entre monumentos e paisagens.</p>
+                        </div>
+                        <div class="destaque-item">
+                            <div class="destaque-numero">1.200</div>
+                            <h4>Tipos de queijos</h4>
+                            <p>O país possui mais de 1.200 variedades de queijos, cada um com sua história.</p>
+                        </div>
+                        <div class="destaque-item">
+                            <div class="destaque-numero">5ª</div>
+                            <h4>Economia mundial</h4>
+                            <p>É a 5ª maior economia do mundo e uma potência cultural e política global.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Seção História -->
+            <section id="historia" class="section section-alt">
+                <h2 class="section-title">História</h2>
+                <div class="section-content">
+                    <p>
+                        A história da França é uma jornada fascinante que moldou não apenas a Europa, mas todo o mundo ocidental. Desde os povos gauleses até a França moderna, conheça os marcos que definiram esta nação:
+                    </p>
+                    
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-ano">52 a.C.</div>
+                            <div class="timeline-titulo">Conquista Romana</div>
+                            <div class="timeline-desc">Júlio César conquista a Gália, integrando o território ao Império Romano e introduzindo a cultura latina.</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-ano">481 d.C.</div>
+                            <div class="timeline-titulo">Reino dos Francos</div>
+                            <div class="timeline-desc">Clóvis I unifica as tribos francas e funda a dinastia Merovíngia, dando origem ao nome "França".</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-ano">800</div>
+                            <div class="timeline-titulo">Carlos Magno</div>
+                            <div class="timeline-desc">Carlos Magno é coroado Imperador do Sacro Império Romano-Germânico, unificando grande parte da Europa.</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-ano">1789</div>
+                            <div class="timeline-titulo">Revolução Francesa</div>
+                            <div class="timeline-desc">A queda da Bastilha marca o fim da monarquia absoluta e o nascimento dos ideais de Liberdade, Igualdade e Fraternidade.</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-ano">1804</div>
+                            <div class="timeline-titulo">Era Napoleônica</div>
+                            <div class="timeline-desc">Napoleão Bonaparte se torna imperador, expandindo o território francês e difundindo o Código Napoleônico pela Europa.</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-ano">1958</div>
+                            <div class="timeline-titulo">V República</div>
+                            <div class="timeline-desc">Charles de Gaulle funda a Quinta República, estabelecendo o sistema político que vigora até hoje na França.</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Seção Ferramentas de Viagem (Clima + Conversor) -->
+            <section id="ferramentas" class="section">
+                <h2 class="section-title">Ferramentas de Viagem</h2>
+                <div class="section-content">
+                    <p>
+                        Confira o clima em tempo real nas principais cidades francesas e converta valores de euros para reais para planejar sua viagem.
+                    </p>
+                    <div class="tools-grid">
+                        <div class="tool-card">
+                            <h3>Clima Agora</h3>
+                            <select id="cidade-select">
+                                <option value="paris">Paris</option>
+                                <option value="nice">Nice</option>
+                                <option value="lyon">Lyon</option>
+                                <option value="estrasburgo">Estrasburgo</option>
+                            </select>
+                            <div id="clima-resultado" class="clima-resultado">
+                                <p class="loading-text">Carregando clima...</p>
+                            </div>
+                        </div>
+                        <div class="tool-card">
+                            <h3>Conversor de Moeda</h3>
+                            <select id="conversor-direcao">
+                                <option value="EUR_BRL">Euro (€) → Real (R$)</option>
+                                <option value="BRL_EUR">Real (R$) → Euro (€)</option>
+                            </select>
+                            <div class="conversor-input-wrapper">
+                                <input type="number" id="valor-euro" placeholder="Valor em €" min="0" step="0.01">
+                                <button id="converter-btn">Converter</button>
+                            </div>
+                            <div id="conversor-resultado" class="conversor-resultado"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Seção Cultura (resumo com link para página completa) -->
+            <section id="cultura" class="section section-alt">
+                <h2 class="section-title">Cultura Francesa</h2>
+                <div class="section-content">
+                    <p>
+                        A cultura da França é uma das mais influentes e reconhecidas do mundo, tecida ao longo de séculos de história, entrelaçando tradição, arte, pensamento e modo de viver. A França é frequentemente chamada de "país da arte e da beleza", e não à toa.
+                    </p>
+                    <div class="culture-grid">
+                        <div class="culture-item">
+                            <div class="culture-item-image" style="background-image: url('https://commons.wikimedia.org/wiki/Special:FilePath/Claude%20Monet%2C%20Impression%2C%20soleil%20levant.jpg?width=500');"></div>
+                            <svg class="culture-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                <path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                            </svg>
+                            <h3>Arte</h3>
+                            <p>Abrigou grandes nomes como Monet, Renoir, Picasso e Rodin, revolucionando a arte mundial.</p>
+                        </div>
+                        <div class="culture-item">
+                            <svg class="culture-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                            </svg>
+                            <h3>Literatura</h3>
+                            <p>Escritores como Victor Hugo, Marcel Proust e Albert Camus moldaram o pensamento moderno.</p>
+                        </div>
+                        <div class="culture-item">
+                            <div class="culture-item-image" style="background-image: url('img/vinhos.jpg');"></div>
+                            <svg class="culture-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                <path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <h3>Gastronomia</h3>
+                            <p>Queijos, vinhos, croissants e haute cuisine são patrimônios reconhecidos pela UNESCO.</p>
+                        </div>
+                        <div class="culture-item">
+                            <svg class="culture-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                <path d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z"/>
+                            </svg>
+                            <h3>Moda</h3>
+                            <p>Paris é considerada a capital mundial da moda, com marcas icônicas e desfiles de referência.</p>
+                        </div>
+                    </div>
+                    <p style="margin-top: 30px; text-align: center;">
+                        <a href="project.html" style="color: var(--accent); font-weight: 600; border-bottom: 2px solid var(--accent); padding-bottom: 2px;">
+                            Explorar cultura francesa completa →
+                        </a>
+                    </p>
+                </div>
+            </section>
+
+            <!-- Seção Pontos Turísticos (resumo com link para página completa) -->
+            <section id="turismo" class="section section-alt">
+                <h2 class="section-title">Pontos Turísticos</h2>
+                <div class="section-content">
+                    <p class="turismo-intro">
+                        A França abriga alguns dos monumentos e locais mais reconhecidos do mundo. Conheça os principais:
+                    </p>
+                    <div class="turismo-cards">
+                        <div class="turismo-card">
+                            <div class="turismo-card-image" style="background-image: linear-gradient(135deg, rgba(0,35,149,.35), rgba(237,41,57,.3)), url('img/hero-eiffel.webp');"></div>
+                            <div class="turismo-card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                    <path d="M12 2L8 10h8L12 2zM8 10l-2 12h12l-2-12H8zM10 14h4v4h-4v-4z"/>
+                                </svg>
+                            </div>
+                            <h3>Torre Eiffel</h3>
+                            <p>O símbolo mais icônico de Paris e da França, com 330 metros de altura. Construída em 1889.</p>
+                            <span class="turismo-local">Paris</span>
+                        </div>
+                        <div class="turismo-card">
+                            <div class="turismo-card-image" style="background-image: linear-gradient(135deg, rgba(0,35,149,.35), rgba(237,41,57,.3)), url('https://commons.wikimedia.org/wiki/Special:FilePath/Louvre_Museum_Wikimedia_Commons.jpg?width=500');"></div>
+                            <div class="turismo-card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                    <path d="M4 19V5a2 2 0 012-2h12a2 2 0 012 2v14M4 19h16M4 19a2 2 0 002 2h12a2 2 0 002-2M8 7h8M8 11h8M8 15h5"/>
+                                </svg>
+                            </div>
+                            <h3>Museu do Louvre</h3>
+                            <p>O museu mais visitado do mundo, abrigando a Mona Lisa e milhares de obras-primas.</p>
+                            <span class="turismo-local">Paris</span>
+                        </div>
+                        <div class="turismo-card">
+                            <div class="turismo-card-image" style="background-image: linear-gradient(135deg, rgba(0,35,149,.35), rgba(237,41,57,.3)), url('https://commons.wikimedia.org/wiki/Special:FilePath/Versailles_Palace.jpg?width=500');"></div>
+                            <div class="turismo-card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                    <path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h1M9 13h1M9 17h1M14 9h1M14 13h1M14 17h1"/>
+                                </svg>
+                            </div>
+                            <h3>Palácio de Versalhes</h3>
+                            <p>Símbolo da monarquia absoluta, com jardins deslumbrantes e a Sala dos Espelhos.</p>
+                            <span class="turismo-local">Versalhes</span>
+                        </div>
+                    </div>
+                    <p style="margin-top: 30px; text-align: center;">
+                        <a href="contact.html" style="color: var(--accent2); font-weight: 600; border-bottom: 2px solid var(--accent2); padding-bottom: 2px;">
+                            Ver todos os pontos turísticos →
+                        </a>
+                    </p>
+                </div>
+            </section>
+        </main>
+
+        <!-- Rodapé -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p><strong>Vive la France</strong></p>
+                <p class="footer-motto">Liberté, Égalité, Fraternité</p>
+                <p class="footer-tcc">Trabalho de Conclusão de Curso • Desenvolvimento de Sistemas</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js?v=5"></script>
+</body>
+</html>

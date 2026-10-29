@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pontos Turísticos - Vive la France</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Trava de acesso: sem login, redireciona para a tela de entrada -->
+    <script>
+        (function () {
+            var sessao = null;
+            try { sessao = JSON.parse(localStorage.getItem('vlf-session')); } catch (e) {}
+            if (!sessao || !sessao.email) { location.replace('login.html'); }
+        })();
+    </script>
+    <link rel="stylesheet" href="index.css?v=6">
+    <script>
+        (function () {
+            var saved = localStorage.getItem('vlf-theme');
+            var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+</head>
+<body>
+    <div class="container">
+        <!-- Navegação -->
+        <nav class="navbar">
+            <a href="index.html" class="nav-brand">
+                <svg class="flag-icon" viewBox="0 0 30 20" aria-hidden="true">
+                    <rect width="10" height="20" fill="#002395"/>
+                    <rect x="10" width="10" height="20" fill="#FFFFFF"/>
+                    <rect x="20" width="10" height="20" fill="#ED2939"/>
+                </svg>
+                <span>Vive la France</span>
+            </a>
+            <div class="nav-right">
+                <ul class="nav-menu">
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="index.html#ferramentas">Ferramentas</a></li>
+                    <li><a href="project.html">Cultura</a></li>
+                    <li><a href="contact.html" class="ativo">Pontos Turísticos</a></li>
+                    <li id="nav-auth"><a href="login.html">Entrar</a></li>
+                </ul>
+                <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Alternar modo escuro">
+                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <circle cx="12" cy="12" r="5"/>
+                        <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                    </svg>
+                    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Cabeçalho da Página -->
+        <header class="page-header">
+            <div class="page-header-bg" style="background-image: url('img/estrasburgo.jpg');" aria-hidden="true"></div>
+            <a href="index.html" class="voltar-btn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Voltar ao início
+            </a>
+            <h1>Pontos Turísticos</h1>
+            <p>Da Torre Eiffel aos campos de lavanda da Provença, descubra os lugares mais deslumbrantes e icônicos da França.</p>
+        </header>
+
+        <!-- Conteúdo Principal -->
+        <main>
+            <!-- Introdução -->
+            <section class="section">
+                <div class="section-content">
+                    <p>
+                        A França é o destino turístico mais visitado do mundo, e não é difícil entender por quê. Com uma diversidade paisagística impressionante, o país oferece desde monumentos históricos mundialmente famosos até paisagens naturais de tirar o fôlego. A França possui <strong>49 sítios classificados como Patrimônio Mundial da UNESCO</strong>, demonstrando sua riqueza cultural e natural.
+                    </p>
+                    
+                    <div class="info-cards">
+                        <div class="info-card">
+                            <h3>Turistas/ano</h3>
+                            <p>+100 milhões</p>
+                        </div>
+                        <div class="info-card">
+                            <h3>Sítios UNESCO</h3>
+                            <p>49 locais</p>
+                        </div>
+                        <div class="info-card">
+                            <h3>Regiões</h3>
+                            <p>18 regiões</p>
+                        </div>
+                        <div class="info-card">
+                            <h3>Museus em Paris</h3>
+                            <p>+150 museus</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Paris e Île-de-France -->
+            <section class="section section-alt">
+                <h2 class="section-title">Paris e Região</h2>
+                <div class="section-content">
+                    <p class="turismo-intro">
+                        A capital francesa é uma cidade-luar, repleta de monumentos icônicos, museus de classe mundial e uma atmosfera única.
+                    </p>
+                    <div class="turismo-cards">
+                        <div class="turismo-card">
+                            <div class="turismo-card-image" style="background-image: linear-gradient(135deg, rgba(0,35,149,.3), rgba(237,41,57,.25)), url('img/hero-eiffel.webp');"></div>
+                            <div class="turismo-card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                    <path d="M12 2L8 10h8L12 2zM8 10l-2 12h12l-2-12H8zM10 14h4v4h-4v-4z"/>
+                                </svg>
+                            </div>
+                            <h3>Torre Eiffel</h3>
+                            <p>O símbolo mais icônico de Paris e da França, com 330 metros de altura. Construída por Gustave Eiffel em 1889 para a Exposição Universal, recebe cerca de 7 milhões de visitantes por ano.</p>
+                            <span class="turismo-local">Paris • 7º arrondissement</span>
+                        </div>
+                        <div class="turismo-card">
+                            <div class="turismo-card-image" style="background-image: linear-gradient(135deg, rgba(0,35,149,.3), rgba(237,41,57,.25)), url('https://commons.wikimedia.org/wiki/Special:FilePath/Louvre_Museum_Wikimedia_Commons.jpg?width=600');"></div>
+                            <div class="turismo-card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                    <path d="M4 19V5a2 2 0 012-2h12a2 2 0 012 2v14M4 19h16M4 19a2 2 0 002 2h12a2 2 0 002-2M8 7h8M8 11h8M8 15h5"/>
+                                </svg>
+                            </div>
+                            <h3>Museu do Louvre</h3>
+                            <p>O museu mais visitado do mundo, com mais de 380 mil obras e 35 mil em exposição. Abriga a Mona Lisa de Leonardo da Vinci, a Vênus de Milo e a Vitória de Samotrácia.</p>
+                            <span class="turismo-local">Paris • 1º arrondissement</span>
+                        </div>
+                        <div class="turismo-card">
+                            <div class="turismo-card-image" style="background-image: linear-gradient(135deg, rgba(0,35,149,.3), rgba(237,41,57,.25)), url('https://commons.wikimedia.org/wiki/Special:FilePath/Notre-Dame%20de%20Paris%2C%204%20October%202017.jpg?width=600');"></div>
+                            <div class="turismo-card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                    <path d="M12 2l-2 7h-7l5.5 4.5L6 21l6-4.5L18 21l-1.5-7.5L22 9h-7l-2-7z"/>
+                                </svg>
+                            </div>
+                            <h3>Catedral de Notre-Dame</h3>
+                            <p>Magnífica catedral gótica construída entre 1163 e 1345. Após o incêndio de 2019, passa por um processo de restauração previsto para ser concluído em 2024.</p>
+                            <span class="turismo-local">Paris • Ilha da Cidade</span>
+                        </div>
+                        <div class="turismo-card">
+                            <div class="turismo-card-image" style="background-image: linear-gradient(135deg, rgba(0,35,149,.3), rgba(237,41,57,.25)), url('https://commons.wikimedia.org/wiki/Special:FilePath/Arc%20de%20Triomphe%2C%20Paris%2C%20France.jpg?width=600');"></div>
+                            <div class="turismo-card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                    <path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M19.07 4.93L4.93 19.07"/>
+                                </svg>
+                            </div>
+                            <h3>Arco do Triunfo</h3>
+                            <p>Monumento de 50 metros de altura em homenagem aos soldados franceses. No topo, uma vista panorâmica espetacular dos 12 avenidas que irradiam da Praça Charles de Gaulle.</p>
+                            <span class="turismo-local">Paris • Praça Charles de Gaulle</span>
+                        </div>
+                        <div class="turismo-card">
+                            <div class="turismo-card-image" style="background-image: linear-gradient(135deg, rgba(0,35,149,.3), rgba(237,41,57,.25)), url('https://commons.wikimedia.org/wiki/Special:FilePath/Versailles_Palace.jpg?width=600');"></div>
+                            <div class="turismo-card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                    <path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h1M9 13h1M9 17h1M14 9h1M14 13h1M14 17h1"/>
+                                </svg>
+                            </div>
+                            <h3>Palácio de Versalhes</h3>
+                            <p>Símbolo da monarquia absoluta francesa, com 700 quartos, a famosa Sala dos Espelhos e jardins deslumbrantes com fontes. A 20 km de Paris.</p>
+                            <span class="turismo-local">Versalhes</span>
+                        </div>
+                        <div class="turismo-card">
+                            <div class="turismo-card-image" style="background-image: linear-gradient(135deg, rgba(0,35,149,.3), rgba(237,41,57,.25)), url('https://commons.wikimedia.org/wiki/Special:FilePath/Sacre%20Coeur%20Basilica%20Paris.jpg?width=600');"></div>
+                            <div class="turismo-card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                    <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16M12 21v-9M9 21h6"/>
+                                </svg>
+                            </div>
+                            <h3>Basílica de Sacré-Cœur</h3>
+                            <p>Branca e imponente no topo da colina de Montmartre, oferece uma das melhores vistas de Paris. Sua construção começou em 1875 como promessa após a guerra franco-prussiana.</p>
+                            <span class="turismo-local">Paris • Montmartre</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Norte e Normandia -->
+            <section class="section">
+                <h2 class="section-title">Norte e Normandia</h2>
+                <div class="section-content">
+                    <p class="turismo-intro">
+                        Uma região de paisagens verdes, falésias impressionantes, história medieval e memórias da Segunda Guerra Mundial.
+                    </p>
+                    <div class="turismo-cards">
+                        <div class="turismo-card">
+                            <div class="turismo-card-image" style="background-image: linear-gradient(135deg, rgba(0,35,149,.3), rgba(237,41,57,.25)), url('https://commons.wikimedia.org/wiki/Special:FilePath/Le%20Mont-Saint-Michel.jpg?width=600');"></div>
+                            <div class="turismo-card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                    <path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7zM12 11a2 2 0 100-4 2 2 0 000 4z"/>
+                                </svg>
+                            </div>
+                            <h3>Mont Saint-Michel</h3>
+                            <p>Ilha rochosa com um mosteiro medieval construído entre os séculos XI e XVI. Uma das maravilhas da arquitetura da Normandia, cercada por marés impressionantes.</p>
+                            <span class="turismo-local">Normandia</span>
+                        </div>
+                        <div class="turismo-card">
+                            <div class="turismo-card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                                    <circle cx="12" cy="10" r="3"/>
+                                </svg>
+                            </div>
+                            <h3>Praias do Desembarque</h3>
+                            <p>Locais históricos do Dia D (6 de junho de 1944), quando as forças aliadas desembarcaram na Normandia para libertar a Europa do nazismo. Museus e cemitérios contam esta história.</p>
+                            <span class="turismo-local">Normandia • Omaha Beach</span>
+                        </div>
+                        <div class="turismo-card">
+                            <div class="turismo-card-image" style="background-image: linear-gradient(135deg, rgba(0,35,149,.3), rgba(237,41,57,.25)), url('https://commons.wikimedia.org/wiki/Special:FilePath/Etretat%20falaises.jpg?width=600');"></div>
+                            <div class="turismo-card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                    <path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/>
+                                </svg>
+                            </div>
+                            <h3>Etretat</h3>
+                            <p>Famosa por suas falésias de giz branco e arcos naturais esculpididos pelo mar. Inspirou pintores impressionistas como Monet e Courbet.</p>
+                            <span class="turismo-local">Normandia • Costa de Alabastro</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sul e Provença -->
+            <section class="section section-alt">
+                <h2 class="section-title">Sul e Provença</h2>
+                <div class="section-content">
+                    <p class="turismo-intro">
+                        O sul da França encanta com seu clima mediterrâneo, campos de lavanda, cidades históricas e a deslumbrante Costa Azul.
+                    </p>
+                    <div class="turismo-cards">
+                        <div class="turismo-card">
+                            <div class="turismo-card-image" style="background-image: linear-gradient(135deg, rgba(0,35,149,.3), rgba(237,41,57,.25)), url('https://commons.wikimedia.org/wiki/Special:FilePath/Lavender%20field%20Provence%20France.jpg?width=600');"></div>
+                            <div class="turismo-card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
+                                </svg>
+                            </div>
+                            <h3>Campos de Lavanda</h3>
+                            <p>A Provença é famosa mundialmente por seus campos de lavanda que florescem entre junho e agosto, criando paisagens roxas e perfumadas de tirar o fôlego.</p>
+                            <span class="turismo-local">Provença • Plateau de Valensole</span>
+                        </div>
+                        <div class="turismo-card">
+                            <div class="turismo-card-image" style="background-image: linear-gradient(135deg, rgba(0,35,149,.3), rgba(237,41,57,.25)), url('https://commons.wikimedia.org/wiki/Special:FilePath/Nice%20-%20Promenade%20des%20Anglais.jpg?width=600');"></div>
+                            <div class="turismo-card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                                    <circle cx="12" cy="10" r="3"/>
+                                </svg>
+                            </div>
+                            <h3>Nizza e Costa Azul</h3>
+                            <p>Joia da Riviera Francesa, com suas praias, a Baía dos Anjos e a famosa Promenade des Anglais. Ponto de partida para explorar Mônaco, Cannes e Saint-Tropez.</p>
+                            <span class="turismo-local">Provença-Alpes-Costa Azul</span>
+                        </div>
+                        <div class="turismo-card">
+                            <div class="turismo-card-image" style="background-image: linear-gradient(135deg, rgba(0,35,149,.3), rgba(237,41,57,.25)), url('https://commons.wikimedia.org/wiki/Special:FilePath/Palais%20des%20Papes%20Avignon.jpg?width=600');"></div>
+                            <div class="turismo-card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                    <path d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"/>
+                                </svg>
+                            </div>
+                            <h3>Palau Papal de Avignon</h3>
+                            <p>O maior palácio gótico da Europa, residência de 7 papas no século XIV. Avignon também abriga o maior festival de teatro do mundo.</p>
+                            <span class="turismo-local">Provença • Avignon</span>
+                        </div>
+                        <div class="turismo-card">
+                            <div class="turismo-card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                    <path d="M12 2l2.39 4.84L20 7.27l-4 3.9.94 5.5L12 14.77l-4.94 2.9L8 11.17l-4-3.9 5.61-.43L12 2z"/>
+                                </svg>
+                            </div>
+                            <h3>Saint-Tropez</h3>
+                            <p>Vila de pescadores transformada em destino de luxo, famosa por suas praias, vida noturna e por atrair celebridades de todo o mundo.</p>
+                            <span class="turismo-local">Provença-Alpes-Costa Azul</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Outras Regiões -->
+            <section class="section">
+                <h2 class="section-title">Outras Regiões Imperdíveis</h2>
+                <div class="section-content">
+                    <div class="turismo-cards">
+                        <div class="turismo-card">
+                            <div class="turismo-card-image" style="background-image: linear-gradient(135deg, rgba(0,35,149,.3), rgba(237,41,57,.25)), url('https://commons.wikimedia.org/wiki/Special:FilePath/Chateau%20de%20Chambord.jpg?width=600');"></div>
+                            <div class="turismo-card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                    <path d="M3 21h18M5 21V7l7-4 7 4v14M9 21V12h6v9"/>
+                                </svg>
+                            </div>
+                            <h3>Castelos do Vale do Loire</h3>
+                            <p>Considerado o "jardim da França", o Vale do Loire abriga mais de 300 castelos renascentistas, como Chambord, Chenonceau e Villandry.</p>
+                            <span class="turismo-local">Centro-Vale do Loire</span>
+                        </div>
+                        <div class="turismo-card">
+                            <div class="turismo-card-image" style="background-image: linear-gradient(135deg, rgba(0,35,149,.3), rgba(237,41,57,.25)), url('img/hero-lyon.webp');"></div>
+                            <div class="turismo-card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                    <path d="M19 21V5a2 2 0 00-2-2H9a2 2 0 00-2 2v16M5 21V9l4-4M19 21H5M9 9h1M9 13h1M14 9h1M14 13h1M9 17h6"/>
+                                </svg>
+                            </div>
+                            <h3>Lyon</h3>
+                            <p>Capital histórica da gastronomia francesa e Patrimônio Mundial da UNESCO, com seu centro renascentista, a Place des Terreaux e o Hôtel de Ville.</p>
+                            <span class="turismo-local">Auvergne-Ródano-Alpes</span>
+                        </div>
+                        <div class="turismo-card">
+                            <div class="turismo-card-image" style="background-image: linear-gradient(135deg, rgba(0,35,149,.3), rgba(237,41,57,.25)), url('img/estrasburgo.jpg');"></div>
+                            <div class="turismo-card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                                </svg>
+                            </div>
+                            <h3>Estrasburgo</h3>
+                            <p>Cidade na fronteira com a Alemanha, com uma arquitetura encantadora que mistura influências francesas e alemãs. Seu centro histórico e a Catedral Gótica são imperdíveis.</p>
+                            <span class="turismo-local">Alsácia • Estrasburgo</span>
+                        </div>
+                        <div class="turismo-card">
+                            <div class="turismo-card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                    <path d="M2 22h20M4 22V10l8-6 8 6v12M10 22v-6h4v6"/>
+                                </svg>
+                            </div>
+                            <h3>Alpes Franceses</h3>
+                            <p>Paraíso dos esportes de inverno com estações como Chamonix (ao lado do Mont Blanc, o pico mais alto da Europa) e de verão com trilhas deslumbrantes.</p>
+                            <span class="turismo-local">Ródano-Alpes</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Dicas de Viagem -->
+            <section class="section section-alt">
+                <h2 class="section-title">Dicas de Viagem</h2>
+                <div class="section-content">
+                    <div class="destaques-grid">
+                        <div class="destaque-item">
+                            <div class="destaque-numero">01</div>
+                            <h4>Melhor época</h4>
+                            <p>Primavera (abril a junho) e outono (setembro a outubro) oferecem clima agradável e menos turistas.</p>
+                        </div>
+                        <div class="destaque-item">
+                            <div class="destaque-numero">02</div>
+                            <h4>Transporte</h4>
+                            <p>O TGV (trem de alta velocidade) conecta Paris às principais cidades de forma rápida e confortável.</p>
+                        </div>
+                        <div class="destaque-item">
+                            <div class="destaque-numero">03</div>
+                            <h4>Idioma</h4>
+                            <p>Aprender algumas frases básicas em francês é sempre apreciado, embora o inglês funcione em áreas turísticas.</p>
+                        </div>
+                        <div class="destaque-item">
+                            <div class="destaque-numero">04</div>
+                            <h4>Gastronomia</h4>
+                            <p>Não deixe de provar os queijos locais, vinhos, macarons e o tradicional croissant com café.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Rodapé -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p><strong>Vive la France</strong></p>
+                <p class="footer-motto">Liberté, Égalité, Fraternité</p>
+                <p class="footer-tcc">Trabalho de Conclusão de Curso • Desenvolvimento de Sistemas</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js?v=6"></script>
+</body>
+</html>
