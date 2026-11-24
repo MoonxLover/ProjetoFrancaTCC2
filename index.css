@@ -295,7 +295,7 @@ body {
     color: var(--text);
     margin-bottom: 10px;
     line-height: 1.1;
-    background: linear-gradient(135deg, var(--france-blue), var(--france-red));
+    background: linear-gradient(135deg, blue, red);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -303,15 +303,15 @@ body {
 
 .hero-subtitle {
     font-family: 'Crimson Pro', serif;
-    font-size: 1.4rem;
+    font-size: 2.5rem;
     font-style: italic;
-    color: var(--accent);
+    color: var(--text);
     margin-bottom: 20px;
 }
 
 .hero-description {
-    font-size: 1.1rem;
-    color: var(--muted);
+    font-size: 1.4rem;
+    color: var(--text);
     max-width: 500px;
 }
 
