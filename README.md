@@ -1,17 +1,1 @@
 ﻿# ProjetoFrancaTCC2
-Resumo do código – Projeto Vive la France
-O código apresenta a tela de login do site Vive la France, permitindo que os usuários entrem em suas contas ou criem uma nova.
-
-Principais funcionalidades:
-- Login: acesso usando e-mail e senha.
-- Cadastro: criação de uma conta com nome, e-mail e senha.
-- Firebase: possibilidade de utilizar login na nuvem ou modo local.
-- Tema: opção de alternar entre modo claro e escuro.
-- Visual: página com bandeira da França, imagem da Torre Eiffel e identidade visual do projeto.
-- Segurança: controle de acesso e orientação para configuração da autenticação.
-Arquivos utilizados:
-- login.html: estrutura da tela de login.
-- index.css: aparência e estilos.
-- config.js: configurações do Firebase.
-- script.js: funcionalidades do sistema.
-Conclusão: o objetivo é criar um sistema de login para o Vive la France, permitindo que os usuários acessem o site, criem contas e explorem o conteúdo sobre a França.
