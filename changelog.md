@@ -31,7 +31,7 @@ git push origin main
 
 Todas as alterações importantes do projeto **Vive la France** serão registradas neste arquivo.
 
-## [1.0.0] - 2026-11-26
+## [2.0.0] - 2026-11-26
 
 ### Adicionado
 - Criação da identidade visual do site com cores inspiradas na bandeira francesa.
